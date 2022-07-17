@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/goranjako/node.js-typescript-Rabbitmq-micro-service/issues"
   },
-  "homepage": "https://github.com/goranjako/node.js-typescript-Rabbitmq-micro-service#readme"
+  "homepage": "https://github.com/goranjako/node.js-typescript-Rabbitmq-micro-service#readme",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
 }
