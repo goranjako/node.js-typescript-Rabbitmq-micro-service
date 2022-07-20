@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "ts-node ./lib/server.ts",
     "build": "rimraf dist && tsc  ",
-    "start": "node ./dist/index.js "
+    "start": "pm2 start./dist/index.js ",
+    "stop": "pm2 stop ./dist/index.js ",
+    "restart": "pm2 restart ./dist/index.js "
   },
   "repository": {
     "type": "git",
