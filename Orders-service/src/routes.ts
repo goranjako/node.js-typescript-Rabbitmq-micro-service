@@ -5,7 +5,7 @@ import  authManager from './util/auth';
 export default function setRoutes(app:any) {
 
 const router = express.Router();
-router.get("/orders", orderController.getAll);
+router.get("/orders",authManager.verifyToken, orderController.getAll);
 //productRoute
 
 app.use('/', router);
