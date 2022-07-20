@@ -8,23 +8,23 @@ const {
 import ProductController from "./controllers/product.controller";
 import OrderController from "./controllers/order.controller";
 
-//import authManager from './util/auth';
+import authManager from './util/auth';
 export default function setRoutes(app: any) {
   const router = express.Router();
 
   //productRoute
   router
     .route("/product")
-    .post(validateProductBody(), validate, ProductController.create);
-  router.route("/product").get(ProductController.getAll);
-  router.route("/product/:id").get(ProductController.get);
+    .post(authManager.verifyToken,validateProductBody(), validate, ProductController.create);
+  router.route("/product").get(authManager.verifyToken,ProductController.getAll);
+  router.route("/product/:id").get(authManager.verifyToken,ProductController.get);
   router
     .route("/product/:id")
-    .put(validateProductBody(), validate, ProductController.put);
-  router.route("/product/:id").delete(ProductController.delete);
+    .put(authManager.verifyToken,validateProductBody(), validate, ProductController.put);
+  router.route("/product/:id").delete(authManager.verifyToken,ProductController.delete);
   router
     .route("/orders")
-    .post(validateOrderBody(), validate, OrderController.create);
+    .post(authManager.verifyToken,validateOrderBody(), validate, OrderController.create);
 
   app.use("/", router);
 }
